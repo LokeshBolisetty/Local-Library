@@ -1,0 +1,25 @@
+{%extends "base_generic.html"%}
+{%block title%}
+<title>
+	{{author.first_name}} {{author.last_name}}
+</title>
+{%endblock%}
+{%block content%}
+<h1 style="text-align: center">
+	{{author.first_name}} {{author.last_name}}
+</h1>
+<p>
+	{{author.date_of_birth}} - {{author_date_of_death}}
+</p>
+<h4>
+	<strong>Books</strong>
+</h4>
+{%for book in author.book_set.all%}
+<p>
+	<a href="{{book.get_absolute_url}}">{{book.title}}</a>
+</p>
+<p>
+	{{book.summary}}
+</p>
+{%endfor%}
+{%endblock%}
